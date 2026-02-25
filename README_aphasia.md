@@ -2,7 +2,6 @@
 
 A Streamlit-based web application for reviewing and analyzing multimodal speech and gesture data from patients with aphasia. The tool visualizes video segments, gesture keyframes, transcripts, and model outputs side by side — designed to help clinicians and researchers evaluate communication patterns and ASR accuracy.
 
----
 
 ## What It Does
 
@@ -14,22 +13,18 @@ Aphasia affects a person's ability to speak, understand, read, and write. Studyi
 - View augmented transcripts with gesture markers inserted inline
 - Browse results by participant and task with sidebar navigation
 
----
-
 ## Project Structure
 
 - `visualizer.py` — Main Streamlit application
 - `style.css` — Custom styling for the UI
 - `requirements.txt` — Python dependencies
 
----
 
 ## How It Works
 
 ### Data Input
 The app takes a JSON file as input — each entry in the JSON represents one task segment for one participant. It expects the following folder structure alongside the JSON:
 
-```
 your_data_folder/
 ├── analysis.json
 ├── videos/
@@ -41,7 +36,6 @@ your_data_folder/
     │   └── ...
     └── participant2/
         └── ...
-```
 
 ### Transcript Comparison & WER
 The app compares two transcripts for each segment:
@@ -60,7 +54,6 @@ If the JSON contains model output (from a Qwen-VL or similar multimodal model), 
 
 If no LLM output is present, it falls back to showing the raw pipeline augmented transcript and ASR text.
 
----
 
 ## Running the App
 
@@ -69,17 +62,16 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 pip install streamlit
-```
+
 
 Run the app:
 
 ```bash
 streamlit run visualizer.py
-```
+
 
 Then upload your JSON file from the sidebar. Make sure your `videos/` and `gesture_grids/` folders are in the same directory where you run the command.
 
----
 
 ## Tech Stack
 
@@ -89,7 +81,6 @@ Then upload your JSON file from the sidebar. Make sure your `videos/` and `gestu
 - **Pillow** — image loading for gesture grids
 - **unidecode** — Unicode normalization for WER preprocessing
 
----
 
 ## Dataset Format
 
